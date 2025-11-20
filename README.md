@@ -22,3 +22,7 @@ spectrum of one peptide sequence
 ## ***Requirements***
 
 ## ***How to use this package***
+
+
+# **Still developing**
+GaliGrü an Mirjam 
