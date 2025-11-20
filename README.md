@@ -1,6 +1,6 @@
 # Proteosim_EA
 
-## ***What does this Project do?***
+## ***What does this project do?***
 
 runs experimental simulation of proteomic data
 
