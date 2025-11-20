@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "Proteosim_EA"
+version = "0.1.0"
+description = "runs experimental simulation of proteomic data"
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "Ellinor Abele" }]
+requires-python = ">=3.10"
+dependencies = [
+    "numpy",
+    "pytest",
+    "matplotlib",
+    "pyteomics"
+]
+
+[tool.setuptools.packages.find]
+include = ["Proteosim_EA*"]
