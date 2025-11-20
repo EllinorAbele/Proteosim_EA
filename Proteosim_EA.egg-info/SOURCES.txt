@@ -1,0 +1,17 @@
+LICENSE
+README.md
+pyproject.toml
+Proteosim_EA/__init__.py
+Proteosim_EA/file_handling.py
+Proteosim_EA/liquid_chromatography.py
+Proteosim_EA/mass_spectra_simulation.py
+Proteosim_EA/protein_digestion.py
+Proteosim_EA.egg-info/PKG-INFO
+Proteosim_EA.egg-info/SOURCES.txt
+Proteosim_EA.egg-info/dependency_links.txt
+Proteosim_EA.egg-info/requires.txt
+Proteosim_EA.egg-info/top_level.txt
+tests/test_file_handling.py
+tests/test_liquid_chromatography.py
+tests/test_mass_spectra_simulation.py
+tests/test_protein_digestion.py

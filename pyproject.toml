@@ -12,6 +12,7 @@ authors = [{ name = "Ellinor Abele" }]
 requires-python = ">=3.10"
 dependencies = [
     "numpy",
+    "pandas",
     "pytest",
     "matplotlib",
     "pyteomics"
