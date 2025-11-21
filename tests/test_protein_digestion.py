@@ -1,3 +1,4 @@
+from Proteosim_EA.protein_digestion import digest_protein_collection
 def test_test_digest_protein_collection():
     dummy_proteins = {
         "protein1": "APCDERFGFFFHACDRPEFGH",
@@ -22,4 +23,3 @@ def test_test_digest_protein_collection():
     assert test_digested_peptides_collection.get("protein1") == ["APCDER", "FGFFFHACDRPEFGH"]
     # assert test_digested_peptides_collection['protein2'] == [...]
 
-test_test_digest_protein_collection()
