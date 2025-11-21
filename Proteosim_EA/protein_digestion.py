@@ -1,3 +1,4 @@
+import re
 enzyme_cleavage_patterns = {
     'LysC': r'(?<=K)', # nach Lysin geschnitten
     'LysN': r'(?=K)',  # vor Lysin geschnitten
@@ -6,20 +7,38 @@ enzyme_cleavage_patterns = {
 # schneidet am C-Terminus von Lysin ODER Arginin, und Befehl noch weiter "vor" zu schauen, nur wenn da kein Prolin drauf folgt
 }
 
-def digest_protein_sequence(protein_seq, cleave_pattern):
+def digest_protein_sequence(protein_seq, cleave_pattern, min_pep_len=5, max_pep_len=30):
     """
     Digest a protein sequence according to a specified enzyme & cleavage pattern
+    Filter peptide length
 
     Parameters
-    protein_seq, cleave_pattern
+    protein_seq : str
+        Protein sequence to be digested
+        ....
+    cleave_pattern
+    min_pep_len, default 5
+    max_pep_len, default 30
 
     Returns
-    list of peptides
+    filtered list of peptides
 
     """
-    peptides = re.split(cleave_pattern, protein_seq)
+    peptides =[]
+    filtered_peptides = []
 
-    return peptides
+    
+
+    if protein_seq is None:
+        return('Missing information in selected sequence')
+    if min_pep_len > max_pep_len:
+        return('Filtering not possible due to wrong lenght values')
+    else:
+        peptides = re.split(cleave_pattern, protein_seq)
+
+        filtered_peptides = [pep for pep in peptides if min_pep_len <= len(pep) <= max_pep_len]
+
+        return(filtered_peptides)
 
 def digest_protein_collection(protein_map, cleave_pattern, min_pep_len=5, max_pep_len=30):
     """
