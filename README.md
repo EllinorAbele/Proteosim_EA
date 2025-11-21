@@ -22,7 +22,19 @@ spectrum of one peptide sequence
 ## ***Requirements***
 
 ## ***How to use this package***
+# Project Overview
+
+## Installation
+
+To install the package and its dependencies, follow these steps: <br>
+
+pip install -r requirements.txt
+pip install .
+
+This ensures all external dependencies are installed first, followed by the package itself using the configuration specified in `pyproject.toml`.
+
+You can find the example notebook at `ms_experiment_final.ipynb` in the repository root.
 
 
-# **Still developing**
-GaliGrü an Mirjam 
+# **Done developing**
+GaliGrü an Mirjam <3
