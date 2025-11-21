@@ -1,40 +1,65 @@
 # Proteosim_EA
 
-## ***What does this project do?***
+A Python package for simulating proteomics experiments — from protein digestion to MS1/MS2 spectrum generation.  
 
-runs experimental simulation of proteomic data
+---
 
-### ***simulation***
-#### *digestion*
-Proteins are digested by a selected enzyme
+# What Does This Project Do?
+
+Proteosim_EA performs a complete **in-silico simulation of proteomic mass spectrometry data**.  
+Given protein FASTA sequences, the package generates peptides, precursor spectra (MS1), and fragment spectra (MS2).
+
+The workflow consists of three core stages:
+
+---
+
+## 1. Digestion
+
+Proteins are enzymatically digested into peptides according to a user-selected enzyme (e.g., trypsin).
+
 **Output:**
-Peptide sequences
-#### *MS1:*
-mass spectrometry with all peptide sequences (double charge)<br>
+- List of peptide sequences  
+
+---
+
+## 2. HPLC / LC Simulation*
+After digestion, relative LC retention times are predicted for all peptides.
+Optionally, the retention time distribution can be visualized as a histogram, and peptides can be filtered based on a selected retention time window.
+
+**Output:**  
+- predicted retention times (per peptide)  
+- optional: retention time histogram  
+- optional: filtered peptide list based on LC time window
+
+---
+
+## 3. MS1 Simulation – Precursor Spectrum
+
+All peptides are converted into precursor ions (typically doubly charged).  
+The mass spectrometer simulation then produces an MS1 spectrum containing all peptide precursors.
+
 **Output:**
-spectrum of all peptide sequences
-##### *MS2:*
-fragmentation of one single peptide sequence (b- and y-ions)
-mass spectrometry with one peptide sequence (single charge)<br>
+- Precursor m/z table  
+- Simulated MS1 spectrum covering all peptides
+
+---
+
+## 4. MS2 Simulation – Fragmentation
+
+A single peptide is selected for fragmentation (CID-like b/y series).  
+The resulting fragment ions are assembled into an MS2 spectrum.
+
 **Output:**
-spectrum of one peptide sequence
+- List of fragment ions  
+- Simulated MS2 spectrum for this peptide
 
-## ***Requirements***
+---
 
-## ***How to use this package***
-# Project Overview
+# Installation
 
-## Installation
+To install this package and its dependencies:
 
-To install the package and its dependencies, follow these steps: <br>
-
+```bash
 pip install -r requirements.txt
 pip install .
 
-This ensures all external dependencies are installed first, followed by the package itself using the configuration specified in `pyproject.toml`.
-
-You can find the example notebook at `ms_experiment_final.ipynb` in the repository root.
-
-
-# **Done developing**
-GaliGrü an Mirjam <3
