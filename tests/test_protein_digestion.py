@@ -1,4 +1,5 @@
 from Proteosim_EA.protein_digestion import digest_protein_collection
+from Proteosim_EA.protein_digestion import compute_sequence_coverage
 def test_test_digest_protein_collection():
     dummy_proteins = {
         "protein1": "APCDERFGFFFHACDRPEFGH",
@@ -22,4 +23,24 @@ def test_test_digest_protein_collection():
 
     assert test_digested_peptides_collection.get("protein1") == ["APCDER", "FGFFFHACDRPEFGH"]
     # assert test_digested_peptides_collection['protein2'] == [...]
+
+def test_test_compute_sequence_coverage():
+    # Case 1 — 0% coverage (no peptide matches)
+    dummy_prot_seq = "ABCDEFGH"
+    dummy_peps = ["XYZ", "LMN"]
+    coverage = compute_sequence_coverage(dummy_prot_seq, dummy_peps)
+    assert coverage == 0.0
+
+    # Case 2 — 100% coverage (full match with overlapping peptides)
+    dummy_prot_seq = "ABCDEFGH"
+    dummy_peps = ["ABC", "DEF", "GH"]
+    coverage = compute_sequence_coverage(dummy_prot_seq, dummy_peps)
+    assert coverage == 100.0
+
+    # Case 3 — partial coverage (~50%)
+    dummy_prot_seq = "ABCDEFGH"
+    dummy_peps = ["ABC", "GH"]  # covers 3 + 2 = 5 positions out of 8
+    coverage = compute_sequence_coverage(dummy_prot_seq, dummy_peps)
+    assert coverage == (5 / 8) * 100
+
 
